@@ -26,7 +26,7 @@ function CartScreen() {
             </div>
           ):
           (
-
+            <div>
             <table className="table">
                 {/* <thead> */}
                     <tr>
@@ -63,7 +63,17 @@ function CartScreen() {
                     }
                     
             </table>
-            
+            {(cartItems.length >=2|| cartItems[0].quantity>=2) && (
+              <div>
+                <h2>
+                SubTotal Amount ({cartItems.reduce((total,currEle)=>total + currEle.quantity,0)}{" "}Items): $
+                      {
+                        cartItems.reduce((total,currEle)=>total + currEle.quantity*currEle.price,0)
+                      } 
+                </h2>
+              </div>
+            )}
+           </div> 
           )
         }
       </div>
